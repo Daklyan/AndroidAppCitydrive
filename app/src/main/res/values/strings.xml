@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CityDriveapp</string>
+    <string name="register">Not registered yet?</string>
+    <string name="errLogin">Please put your login (at least 3 characters)</string>
+    <string name="errPass">Please put your password (at least 3 characters)</string>
+    <string name="courses">Available course:</string>
+    <string name="dc">Disconnect</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="dcTitle">Disconnect</string>
+    <string name="dcContent">Are you sure you want to disconnect?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="notValidPass">Invalid password</string>
+    <string name="notValidUser">Username not found</string>
+    <string name="noCourse">No course available</string>
+    <string name="courseContent">Would you like to start this course?</string>
+    <string name="start">Start</string>
+    <string name="arrival">Arrival</string>
+    <string name="achieved">Course achieved</string>
+    <string name="sure">Are you sure?</string>
+    <string name="cancelation">You\'re about to cancel this course</string>
+    <string name="finished">Is this course finished?</string>
+</resources>

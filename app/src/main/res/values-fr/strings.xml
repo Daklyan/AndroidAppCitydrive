@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CityDriveapp</string>
+    <string name="register">Pas encore inscrit?</string>
+    <string name="errLogin">Veuillez mettre votre login (au moins 3 caractères)</string>
+    <string name="errPass">Veuillez mettre votre mot de passe (au moins 3 caractères)</string>
+    <string name="courses">Course disponible:</string>
+    <string name="dc">Déconnexion</string>
+    <string name="login">Se connecter</string>
+    <string name="password">Mot de passe</string>
+    <string name="dcTitle">Déconnexion</string>
+    <string name="dcContent">Êtes vous sûr de vouloir vous déconnecter?</string>
+    <string name="yes">Oui</string>
+    <string name="cancel">Annuler</string>
+    <string name="notValidPass">Mot de passe erroné</string>
+    <string name="notValidUser">Nom d\'utilisateur erroné</string>
+    <string name="noCourse">Pas de course disponible</string>
+    <string name="courseContent">Souhaitez vous démarrer la prise en charge de cette course?</string>
+    <string name="start">Départ</string>
+    <string name="arrival">Arrivée</string>
+    <string name="achieved">Course terminée</string>
+    <string name="sure">Êtes vous sûr?</string>
+    <string name="cancelation">Vous êtes sur le point d\'annuler cette course</string>
+    <string name="finished">Cette course est elle achevée?</string>
+</resources>
