@@ -48,9 +48,10 @@ public class SecondActivity extends AppCompatActivity {
         canceled = (Button) findViewById(R.id.btn_canceled);
         id = getIntent().getStringExtra("id");
 
-        canceled.setEnabled(false);
+        canceled.setEnabled(false); //Both disabled because we don't have course when we launch
         achieved.setEnabled(false);
 
+        //Disconnect Action
         disconnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +73,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        //Refresh Action
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +82,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        //Cancel Action
         canceled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,22 +107,23 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        //Achieve course Action
         achieved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(SecondActivity.this)
                         .setTitle(getResources().getString(R.string.finished))
                         .setMessage(" ").setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finished(id);
-                                connected(id);
-                                noCourse.setText(getResources().getString(R.string.noCourse));
-                                achieved.setEnabled(false);
-                                canceled.setEnabled(false);
-                                refresh.setEnabled(true);
-                            }
-                        }).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finished(id);
+                        connected(id);
+                        noCourse.setText(getResources().getString(R.string.noCourse));
+                        achieved.setEnabled(false);
+                        canceled.setEnabled(false);
+                        refresh.setEnabled(true);
+                    }
+                }).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //just close the pop up
@@ -129,6 +133,7 @@ public class SecondActivity extends AppCompatActivity {
         });
     }
 
+    //Seek if there is a course and ask the user
     private void booking() {
         //Initialization
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -190,6 +195,7 @@ public class SecondActivity extends AppCompatActivity {
         requestQueue.add(objectRequest);
     }
 
+    //Disconnect the user in the database
     private void disconnected(final String idDriver) {
         try {
             StringRequest request = new StringRequest(Request.Method.POST, "https://www.citdrive.online/api/disconnected.php", new Response.Listener<String>() {
@@ -220,6 +226,7 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
+    //Connect the user in the database
     private void connected(final String idDriver) {
         try {
             StringRequest request = new StringRequest(Request.Method.POST, "https://www.citdrive.online/api/connected.php", new Response.Listener<String>() {
@@ -250,6 +257,7 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
+    //Finish the course in the database
     private void finished(final String idDriver) {
         try {
             StringRequest request = new StringRequest(Request.Method.POST, "https://www.citdrive.online/api/finished.php", new Response.Listener<String>() {

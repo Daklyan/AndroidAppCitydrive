@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         register.setText(result);
         register.setMovementMethod(LinkMovementMethod.getInstance());
 
-
+        //Login Action
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Login
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Verify password of the user
     private void confirm(final String username, final String password) {
         //Initialization
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -72,10 +73,13 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray jsonarray = new JSONArray(response.toString());
 
+                    //Going through the json array
                     for (int i = 0; i < jsonarray.length(); i++) {
                         JSONObject jsonobject = jsonarray.getJSONObject(i);
+                        //Look if the usernames correspond with one listed by the api
                         if (username.equals(jsonobject.getString("username"))) {
                             count++;
+                            //Verify if password is the same in the edit text and the listed one by the api
                             if (password.equals(jsonobject.getString("password"))) {
                                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                                 intent.putExtra("id", jsonobject.getString("id"));
@@ -99,12 +103,13 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(MainActivity.this,"Oh dear we are in trouble",Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(objectRequest);
     }
 
+    //Connect the user in the database
     private void connected(final String idDriver) {
         try {
             StringRequest request = new StringRequest(Request.Method.POST, "https://www.citdrive.online/api/connected.php", new Response.Listener<String>() {
