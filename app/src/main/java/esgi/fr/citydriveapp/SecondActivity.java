@@ -93,6 +93,7 @@ public class SecondActivity extends AppCompatActivity {
                                 noCourse.setText(getResources().getString(R.string.noCourse));
                                 achieved.setEnabled(false);
                                 canceled.setEnabled(false);
+                                refresh.setEnabled(true);
                             }
                         }).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
@@ -116,6 +117,7 @@ public class SecondActivity extends AppCompatActivity {
                                 noCourse.setText(getResources().getString(R.string.noCourse));
                                 achieved.setEnabled(false);
                                 canceled.setEnabled(false);
+                                refresh.setEnabled(true);
                             }
                         }).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
@@ -153,6 +155,7 @@ public class SecondActivity extends AppCompatActivity {
                                                 noCourse.setText(text);
                                                 canceled.setEnabled(true);
                                                 achieved.setEnabled(true);
+                                                refresh.setEnabled(false);
                                                 disconnected(id);
                                             } catch (Exception err) {
                                                 Log.v("Error", err.getMessage());
